@@ -3,4 +3,21 @@
 
 .main-header {
   @include main-header;
+  @include justify-between;
+
+  .button-group {
+    @include horizontal-center;
+
+    & > * {
+      margin: 0 0.5rem;
+    }
+
+    .add-button {
+      @include button-style($white, $light-gray);
+    }
+
+    .delete-button {
+      @include button-style($white, $primary-color);
+    }
+  }
 }
