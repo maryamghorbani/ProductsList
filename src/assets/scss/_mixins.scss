@@ -1,0 +1,12 @@
+@import "variables";
+
+
+@mixin border-bottom-style($color, $width, $style) {
+  border-bottom: $width $style $color;
+}
+
+@mixin main-header {
+  color: $dark;
+  padding: 0.5rem 1rem;
+  @include border-bottom-style($light-gray, 2px, solid);
+}
