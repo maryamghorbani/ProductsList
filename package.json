@@ -2,13 +2,23 @@
   "name": "productspage",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "description": "A simple ReactJS app that shows a list of products",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue src --ignore-path .gitignore",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,css,scss,md}\""
   },
   "dependencies": {
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-css-import-order": "^1.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
