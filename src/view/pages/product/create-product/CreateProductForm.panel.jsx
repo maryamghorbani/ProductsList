@@ -37,7 +37,7 @@ export const CreateProductForm = () => {
                         <div className="create-product-form__content__inputs__price">
                             <InputField
                                 label="Price"
-                                type="text"
+                                type="number"
                                 onChange={e =>
                                     setNewProduct({
                                         ...newProduct,
