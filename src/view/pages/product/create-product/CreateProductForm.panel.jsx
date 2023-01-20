@@ -14,7 +14,6 @@ export const CreateProductForm = () => {
                         <div className="create-product-form__content__inputs__sku">
                             <InputField
                                 label="Sku"
-                                placeholder="Sku"
                                 type="text"
                                 onChange={e =>
                                     setNewProduct({ ...newProduct, sku: e.target.value })
@@ -25,7 +24,6 @@ export const CreateProductForm = () => {
                         <div className="create-product-form__content__inputs__name">
                             <InputField
                                 label="Name"
-                                placeholder="Name"
                                 type="text"
                                 onChange={e =>
                                     setNewProduct({
@@ -39,7 +37,6 @@ export const CreateProductForm = () => {
                         <div className="create-product-form__content__inputs__price">
                             <InputField
                                 label="Price"
-                                placeholder="Price"
                                 type="text"
                                 onChange={e =>
                                     setNewProduct({

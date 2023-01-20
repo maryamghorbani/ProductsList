@@ -47,3 +47,27 @@
 .error-message {
     @include error-message;
 }
+
+.create-product-form {
+    margin-top: 4rem;
+}
+
+.input-field {
+    @include for-phone-only {
+        @include input-field(80%);
+    }
+    @include for-tablet-portrait-up {
+        @include input-field(60%);
+    }
+    @include for-tablet-landscape-up {
+        @include input-field(40%);
+    }
+
+    input {
+        @include input-style;
+    }
+
+    label {
+        @include label-style;
+    }
+}
