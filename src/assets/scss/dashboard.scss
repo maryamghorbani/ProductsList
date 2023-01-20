@@ -28,5 +28,10 @@
 
     .card {
         @include grid-item;
+        text-align: center;
+
+        .product-item__delete-checkbox {
+            float: left;
+        }
     }
 }
