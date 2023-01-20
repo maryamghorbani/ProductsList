@@ -1,6 +1,10 @@
 import { MainHeader } from "@/view/layout/headers";
+import { CreateProductForm } from "./CreateProductForm.panel";
+import { useContext } from "react";
+import { productContext } from "@/context/context";
 
 export const CreateProductPanel = props => {
+    let { handleSubmit } = useContext(productContext);
     return (
         <div className="create-product-panel">
             <div className="create-product-panel__content">
@@ -10,14 +14,12 @@ export const CreateProductPanel = props => {
                     rightButtonStyle="cancel-button"
                     leftButton="SAVE"
                     rightButton="CANCEL"
-                    onClickLeftButton={() => {
-                        console.log("left button clicked");
-                    }}
+                    onClickLeftButton={handleSubmit}
                     onClickRightButton={() => {
                         console.log("right button clicked");
                     }}
                 />
-                {/*<CreateProductForm createProduct={createProduct} setAddNewItem={setAddNewItem} />*/}
+                <CreateProductForm />
             </div>
         </div>
     );

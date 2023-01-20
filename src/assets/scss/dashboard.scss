@@ -43,3 +43,7 @@
         }
     }
 }
+
+.error-message {
+    @include error-message;
+}

@@ -53,3 +53,10 @@
     border-radius: 0.4rem;
     cursor: pointer;
 }
+
+@mixin error-message {
+    font-size: small;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: $error-color;
+}
