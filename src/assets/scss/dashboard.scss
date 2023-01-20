@@ -19,6 +19,14 @@
         .delete-button {
             @include button-style($white, $primary-color);
         }
+
+        .save-button {
+            @include button-style($white, $custom-blue);
+        }
+
+        .cancel-button {
+            @include button-style($white, $light-gray);
+        }
     }
 }
 

@@ -1,13 +1,22 @@
 import "@/assets/scss/dashboard.scss";
-import {Button} from "@/view/component/widgets";
+import { Button } from "@/view/component/widgets";
 
-export const MainHeader = ({title, leftButton, rightButton, addNewItem}) => {
+export const MainHeader = props => {
+    let {
+        title,
+        leftButton,
+        rightButton,
+        leftButtonStyle,
+        rightButtonStyle,
+        onClickLeftButton,
+        onClickRightButton,
+    } = props;
     return (
         <div className="main-header">
             <h1>{title}</h1>
             <div className="button-group">
-                <Button style="add-button" onClick={addNewItem} text={leftButton}/>
-                <Button style="delete-button" text={rightButton}/>
+                <Button style={leftButtonStyle} onClick={onClickLeftButton} text={leftButton} />
+                <Button style={rightButtonStyle} onClick={onClickRightButton} text={rightButton} />
             </div>
         </div>
     );
