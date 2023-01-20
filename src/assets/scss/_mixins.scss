@@ -60,8 +60,6 @@
 
 @mixin error-message {
     font-size: small;
-    margin-top: 0;
-    margin-bottom: 1rem;
     color: $error-color;
 }
 
@@ -82,7 +80,8 @@
 }
 
 @mixin label-style {
-    width: 4rem;
+    width: 7rem;
+    font-size: 1rem;
     padding: 0.5rem;
     text-align: left;
 }

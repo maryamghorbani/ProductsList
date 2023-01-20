@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { productContext } from "@/context/context";
-import { InputField } from "@/view/component/widgets";
+import { Dropdown, InputField } from "@/view/component/widgets";
 
 export const CreateProductForm = () => {
     let { newProduct, setNewProduct, skuError, nameError, priceError, handleSubmit } =
@@ -13,7 +13,7 @@ export const CreateProductForm = () => {
                     <div className="create-product-form__content__inputs">
                         <div className="create-product-form__content__inputs__sku">
                             <InputField
-                                label="Sku"
+                                label="SKU"
                                 type="text"
                                 onChange={e =>
                                     setNewProduct({ ...newProduct, sku: e.target.value })
@@ -45,6 +45,19 @@ export const CreateProductForm = () => {
                                     })
                                 }
                                 errorMessage={priceError}
+                            />
+                        </div>
+                        <div className="create-product-form__content__inputs__type">
+                            <Dropdown
+                                label="Type Switcher"
+                                options={[
+                                    { value: "", label: "" },
+                                    { value: "1", label: "Type 1" },
+                                    { value: "2", label: "Type 2" },
+                                ]}
+                                onChange={e =>
+                                    setNewProduct({ ...newProduct, type: e.target.value })
+                                }
                             />
                         </div>
                     </div>

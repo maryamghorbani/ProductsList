@@ -3,8 +3,10 @@ export const InputField = props => {
     return (
         <div className="input-field">
             <label htmlFor={label}>{label}</label>
-            <input type={type} placeholder={placeholder} onChange={onChange} />
-            <div className="error-message">{errorMessage}</div>
+            <div className="input-field__input">
+                <input type={type} placeholder={placeholder} onChange={onChange} />
+                <div className="error-message">{errorMessage}</div>
+            </div>
         </div>
     );
 };

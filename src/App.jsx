@@ -12,26 +12,33 @@ function App() {
         sku: "",
         name: "",
         price: "",
+        type: "",
     });
     const [skuError, setSkuError] = useState("");
     const [nameError, setNameError] = useState("");
     const [priceError, setPriceError] = useState("");
+    const [typeError, setTypeError] = useState("");
     const handleSubmit = e => {
         e.preventDefault();
         if (newProduct.sku === "") {
-            setSkuError("Sku is required");
+            setSkuError("Please, submit required data");
         } else {
             setSkuError("");
         }
         if (newProduct.name === "") {
-            setNameError("Name is required");
+            setNameError("Please, submit required data");
         } else {
             setNameError("");
         }
         if (newProduct.price === "") {
-            setPriceError("Price is required");
+            setPriceError("Please, submit required data");
         } else {
             setPriceError("");
+        }
+        if (newProduct.type === "") {
+            setTypeError("Please, submit required data");
+        } else {
+            setTypeError("");
         }
         console.log(newProduct);
     };
@@ -53,6 +60,7 @@ function App() {
                     skuError,
                     nameError,
                     priceError,
+                    typeError,
                     handleSubmit,
                 }}
             >

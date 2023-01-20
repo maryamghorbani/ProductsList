@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { productContext } from "@/context/context";
 
 export const CreateProductPanel = props => {
-    let { handleSubmit } = useContext(productContext);
+    let { handleSubmit, setAddNewItem } = useContext(productContext);
     return (
         <div className="create-product-panel">
             <div className="create-product-panel__content">
@@ -16,7 +16,7 @@ export const CreateProductPanel = props => {
                     rightButton="CANCEL"
                     onClickLeftButton={handleSubmit}
                     onClickRightButton={() => {
-                        console.log("right button clicked");
+                        setAddNewItem(false);
                     }}
                 />
                 <CreateProductForm />

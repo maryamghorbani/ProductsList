@@ -44,15 +44,12 @@
     }
 }
 
-.error-message {
-    @include error-message;
-}
-
 .create-product-form {
     margin-top: 4rem;
 }
 
-.input-field {
+.input-field,
+.dropdown {
     @include for-phone-only {
         @include input-field(80%);
     }
@@ -63,11 +60,25 @@
         @include input-field(40%);
     }
 
-    input {
-        @include input-style;
+    .input-field__input {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+            @include input-style;
+        }
+
+        .error-message {
+            @include error-message;
+        }
     }
 
     label {
         @include label-style;
+    }
+
+    select {
+        @include input-style;
     }
 }
