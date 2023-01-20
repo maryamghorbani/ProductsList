@@ -1,10 +1,10 @@
 import "./App.scss";
-import { MainHeader } from "./view/layout/headers";
+import { ProductListPage } from "@/view/pages/ProductList";
 
 function App() {
     return (
         <div className="App">
-            <MainHeader title="Product List" />
+            <ProductListPage />
         </div>
     );
 }
