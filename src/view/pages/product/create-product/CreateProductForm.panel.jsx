@@ -1,16 +1,11 @@
-import { useContext } from "react";
-import { productContext } from "@/context/context";
+import {useContext} from "react";
+import {productContext} from "@/context/context";
 
-export const CreateProductForm = props => {
-    const { createProduct, setAddNewItem } = props;
+export const CreateProductForm = () => {
 
     let {
-        sku,
-        setSku,
-        name,
-        setName,
-        price,
-        setPrice,
+        newProduct,
+        setNewProduct,
         skuError,
         nameError,
         priceError,
@@ -28,8 +23,9 @@ export const CreateProductForm = props => {
                                 type="text"
                                 id="sku"
                                 placeholder="SKU"
-                                value={sku}
-                                onChange={e => setSku(e.target.value)}
+                                onChange={e => {
+                                    setNewProduct({...newProduct, sku: e.target.value});
+                                }}
                             />
                             <p className="error-message">{skuError}</p>
                         </div>
@@ -38,8 +34,9 @@ export const CreateProductForm = props => {
                             <input
                                 type="text"
                                 placeholder="Name"
-                                value={name}
-                                onChange={e => setName(e.target.value)}
+                                onChange={e => {
+                                    setNewProduct({...newProduct, name: e.target.value});
+                                }}
                             />
                             <div className="error-message">{nameError}</div>
                         </div>
@@ -48,8 +45,9 @@ export const CreateProductForm = props => {
                             <input
                                 type="text"
                                 placeholder="Price"
-                                value={price}
-                                onChange={e => setPrice(e.target.value)}
+                                onChange={e => {
+                                    setNewProduct({...newProduct, price: e.target.value});
+                                }}
                             />
                             <div className="error-message">{priceError}</div>
                         </div>
