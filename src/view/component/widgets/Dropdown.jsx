@@ -1,9 +1,9 @@
 export const Dropdown = props => {
-    const { label, options, onChange, errorMessage } = props;
+    const { label, options, onChange, errorMessage, dropdownId } = props;
     return (
         <div className="dropdown">
             <label className="dropdown__label">{label}</label>
-            <select className="dropdown__select" onChange={onChange}>
+            <select id={dropdownId} className="dropdown__select" onChange={onChange}>
                 {options.map(option => (
                     <option value={option.value} key={option.value}>
                         {option.label}

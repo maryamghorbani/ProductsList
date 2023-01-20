@@ -8,11 +8,12 @@ export const CreateProductForm = () => {
 
     return (
         <div className="create-product-form">
-            <form onSubmit={handleSubmit}>
+            <form id="product_form" onSubmit={handleSubmit}>
                 <div className="create-product-form__content">
                     <div className="create-product-form__content__inputs">
                         <div className="create-product-form__content__inputs__sku">
                             <InputField
+                                inputId="sku"
                                 label="SKU"
                                 type="text"
                                 onChange={e =>
@@ -23,6 +24,7 @@ export const CreateProductForm = () => {
                         </div>
                         <div className="create-product-form__content__inputs__name">
                             <InputField
+                                inputId="name"
                                 label="Name"
                                 type="text"
                                 onChange={e =>
@@ -36,6 +38,7 @@ export const CreateProductForm = () => {
                         </div>
                         <div className="create-product-form__content__inputs__price">
                             <InputField
+                                inputId="price"
                                 label="Price"
                                 type="number"
                                 onChange={e =>
@@ -49,9 +52,10 @@ export const CreateProductForm = () => {
                         </div>
                         <div className="create-product-form__content__inputs__type">
                             <Dropdown
+                                dropdownId="productType"
                                 label="Type Switcher"
                                 options={[
-                                    { value: "", label: "" },
+                                    { value: "0", label: "" },
                                     { value: "1", label: "Type 1" },
                                     { value: "2", label: "Type 2" },
                                 ]}
