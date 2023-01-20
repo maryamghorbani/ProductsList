@@ -1,9 +1,9 @@
 import "./App.scss";
-import {useEffect, useState} from "react";
-import {productContext} from "@/context/context";
+import { useEffect, useState } from "react";
+import { productContext } from "@/context/context";
 import axios from "axios";
-import {ProductListPage} from "@/view/pages/product/ProductList";
-import {CreateProductPanel} from "@/view/pages/product/create-product/CreateProduct.panel";
+import { ProductListPage } from "@/view/pages/product/ProductList";
+import { CreateProductPanel } from "@/view/pages/product/create-product/CreateProduct.panel";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -56,7 +56,7 @@ function App() {
                     handleSubmit,
                 }}
             >
-                {addNewItem ? <CreateProductPanel/> : <ProductListPage products={products}/>}
+                {addNewItem ? <CreateProductPanel /> : <ProductListPage products={products} />}
             </productContext.Provider>
         </div>
     );

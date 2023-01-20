@@ -1,16 +1,10 @@
-import {useContext} from "react";
-import {productContext} from "@/context/context";
+import { useContext } from "react";
+import { productContext } from "@/context/context";
+import { InputField } from "@/view/component/widgets";
 
 export const CreateProductForm = () => {
-
-    let {
-        newProduct,
-        setNewProduct,
-        skuError,
-        nameError,
-        priceError,
-        handleSubmit,
-    } = useContext(productContext);
+    let { newProduct, setNewProduct, skuError, nameError, priceError, handleSubmit } =
+        useContext(productContext);
 
     return (
         <div className="create-product-form">
@@ -18,38 +12,43 @@ export const CreateProductForm = () => {
                 <div className="create-product-form__content">
                     <div className="create-product-form__content__inputs">
                         <div className="create-product-form__content__inputs__sku">
-                            <label htmlFor="sku">SKU</label>
-                            <input
+                            <InputField
+                                label="Sku"
+                                placeholder="Sku"
                                 type="text"
-                                id="sku"
-                                placeholder="SKU"
-                                onChange={e => {
-                                    setNewProduct({...newProduct, sku: e.target.value});
-                                }}
+                                onChange={e =>
+                                    setNewProduct({ ...newProduct, sku: e.target.value })
+                                }
+                                errorMessage={skuError}
                             />
-                            <p className="error-message">{skuError}</p>
                         </div>
                         <div className="create-product-form__content__inputs__name">
-                            <label htmlFor="name">Name</label>
-                            <input
-                                type="text"
+                            <InputField
+                                label="Name"
                                 placeholder="Name"
-                                onChange={e => {
-                                    setNewProduct({...newProduct, name: e.target.value});
-                                }}
+                                type="text"
+                                onChange={e =>
+                                    setNewProduct({
+                                        ...newProduct,
+                                        name: e.target.value,
+                                    })
+                                }
+                                errorMessage={nameError}
                             />
-                            <div className="error-message">{nameError}</div>
                         </div>
                         <div className="create-product-form__content__inputs__price">
-                            <label htmlFor="price">Price</label>
-                            <input
-                                type="text"
+                            <InputField
+                                label="Price"
                                 placeholder="Price"
-                                onChange={e => {
-                                    setNewProduct({...newProduct, price: e.target.value});
-                                }}
+                                type="text"
+                                onChange={e =>
+                                    setNewProduct({
+                                        ...newProduct,
+                                        price: e.target.value,
+                                    })
+                                }
+                                errorMessage={priceError}
                             />
-                            <div className="error-message">{priceError}</div>
                         </div>
                     </div>
                 </div>
