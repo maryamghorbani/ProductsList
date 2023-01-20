@@ -21,3 +21,12 @@
         }
     }
 }
+
+.product-list__content {
+    margin-top: 3rem;
+    @include grid-template;
+
+    .card {
+        @include grid-item;
+    }
+}

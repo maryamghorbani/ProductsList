@@ -28,6 +28,23 @@
     justify-content: space-between;
 }
 
+@mixin grid-template {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+    padding: 0.5rem;
+}
+
+@mixin grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: $white;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
 @mixin button-style($color, $background-color) {
     padding: 0.5rem 1.5rem;
     color: $color;

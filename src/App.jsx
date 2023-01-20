@@ -14,7 +14,7 @@ function App() {
 
     return (
         <div className="App">
-            <ProductListPage />
+            <ProductListPage products={products} />
         </div>
     );
 }
