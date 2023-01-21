@@ -13,11 +13,21 @@ function App() {
         name: "",
         price: "",
         productType: "",
+        size: null,
+        weight: null,
+        height: null,
+        length: null,
+        width: null,
     });
     const [skuError, setSkuError] = useState("");
     const [nameError, setNameError] = useState("");
     const [priceError, setPriceError] = useState("");
     const [typeError, setTypeError] = useState("");
+    const [sizeError, setSizeError] = useState("");
+    const [weightError, setWeightError] = useState("");
+    const [dimensionError, setDimensionError] = useState("");
+    const [type, setType] = useState("");
+
     const handleSubmit = e => {
         e.preventDefault();
         if (newProduct.sku === "") {
@@ -40,6 +50,21 @@ function App() {
         } else {
             setTypeError("");
         }
+        if (newProduct.weight === null) {
+            setWeightError("Please, provide weight");
+        } else {
+            setWeightError("");
+        }
+        if (newProduct.height === null || newProduct.length === null || newProduct.width === null) {
+            setDimensionError("Please, provide dimensions");
+        } else {
+            setDimensionError("");
+        }
+        if (newProduct.size === null) {
+            setSizeError("Please, provide size");
+        } else {
+            setSizeError("");
+        }
         console.log(newProduct);
     };
 
@@ -61,7 +86,12 @@ function App() {
                     nameError,
                     priceError,
                     typeError,
+                    sizeError,
+                    weightError,
+                    dimensionError,
                     handleSubmit,
+                    type,
+                    setType,
                 }}
             >
                 {addNewItem ? <CreateProductPanel /> : <ProductListPage products={products} />}

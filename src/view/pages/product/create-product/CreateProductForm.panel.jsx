@@ -1,10 +1,19 @@
 import { useContext } from "react";
 import { productContext } from "@/context/context";
 import { Dropdown, InputField } from "@/view/component/widgets";
+import { SwitcherTypePanel } from "@/view/component/panels";
 
 export const CreateProductForm = () => {
-    let { newProduct, setNewProduct, skuError, nameError, priceError, handleSubmit } =
-        useContext(productContext);
+    let {
+        newProduct,
+        setNewProduct,
+        skuError,
+        nameError,
+        priceError,
+        handleSubmit,
+        type,
+        setType,
+    } = useContext(productContext);
 
     return (
         <div className="create-product-form">
@@ -56,14 +65,28 @@ export const CreateProductForm = () => {
                                 label="Type Switcher"
                                 options={[
                                     { value: "0", label: "" },
-                                    { value: "dvd", label: "DVD-disc" },
-                                    { value: "book", label: "Book" },
-                                    { value: "furniture", label: "Furniture" },
+                                    {
+                                        value: "dvd",
+                                        label: "DVD-disc",
+                                    },
+                                    {
+                                        value: "book",
+                                        label: "Book",
+                                    },
+                                    {
+                                        value: "furniture",
+                                        label: "Furniture",
+                                    },
                                 ]}
-                                onChange={e =>
-                                    setNewProduct({ ...newProduct, productType: e.target.value })
-                                }
+                                onChange={e => {
+                                    setNewProduct({
+                                        ...newProduct,
+                                        productType: e.target.value,
+                                    });
+                                    setType(e.target.value);
+                                }}
                             />
+                            <SwitcherTypePanel />
                         </div>
                     </div>
                 </div>
