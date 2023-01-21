@@ -12,7 +12,7 @@ function App() {
         sku: "",
         name: "",
         price: "",
-        type: "",
+        productType: "",
     });
     const [skuError, setSkuError] = useState("");
     const [nameError, setNameError] = useState("");

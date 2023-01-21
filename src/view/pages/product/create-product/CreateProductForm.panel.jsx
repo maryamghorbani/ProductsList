@@ -56,11 +56,12 @@ export const CreateProductForm = () => {
                                 label="Type Switcher"
                                 options={[
                                     { value: "0", label: "" },
-                                    { value: "1", label: "Type 1" },
-                                    { value: "2", label: "Type 2" },
+                                    { value: "dvd", label: "DVD-disc" },
+                                    { value: "book", label: "Book" },
+                                    { value: "furniture", label: "Furniture" },
                                 ]}
                                 onChange={e =>
-                                    setNewProduct({ ...newProduct, type: e.target.value })
+                                    setNewProduct({ ...newProduct, productType: e.target.value })
                                 }
                             />
                         </div>
