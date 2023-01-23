@@ -4,10 +4,10 @@ export const ProductItem = props => {
     const { product } = props;
     return (
         <Card className="product-item">
+            <input className="product-item__delete-checkbox" type="checkbox" />
             <div className="product-item__content">
-                <input className="product-item__delete-checkbox" type="checkbox" />
-                <p>{product.id}</p>
-                <p>{product.title}</p>
+                <p>{product.sku}</p>
+                <p>{product.name}</p>
                 <div className="product-item__price">
                     <span>{product.price}$</span>
                 </div>

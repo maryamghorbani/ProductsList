@@ -70,8 +70,8 @@ function App() {
 
     useEffect(() => {
         axios
-            .get("https://dummyjson.com/products")
-            .then(response => setProducts(response.data.products))
+            .get("http://localhost/product/get.php")
+            .then(response => setProducts(response.data))
             .catch(err => console.log(err));
     }, []);
 

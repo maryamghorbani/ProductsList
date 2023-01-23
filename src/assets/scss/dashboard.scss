@@ -30,6 +30,13 @@
     }
 }
 
+.product-item {
+    .product-item__delete-checkbox {
+        display: flex;
+        align-self: flex-start;
+    }
+}
+
 .product-list__content {
     margin-top: 3rem;
     @include grid-template;
