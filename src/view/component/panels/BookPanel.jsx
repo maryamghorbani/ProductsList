@@ -10,7 +10,7 @@ export const BookPanel = () => {
                 inputId="weight"
                 label="Weight (KG)"
                 type="number"
-                onChange={e => setNewProduct({ ...newProduct, weight: e.target.value })}
+                onChange={e => setNewProduct({ ...newProduct, weight: parseInt(e.target.value) })}
                 errorMessage={weightError}
             />
             <h5>Please, provide weight in KG</h5>

@@ -10,21 +10,21 @@ export const FurniturePanel = () => {
                 inputId="height"
                 label="Height (CM)"
                 type="number"
-                onChange={e => setNewProduct({ ...newProduct, height: e.target.value })}
+                onChange={e => setNewProduct({ ...newProduct, height: parseInt(e.target.value) })}
                 errorMessage={dimensionError}
             />
             <InputField
                 inputId="width"
                 label="Width (CM)"
                 type="number"
-                onChange={e => setNewProduct({ ...newProduct, width: e.target.value })}
+                onChange={e => setNewProduct({ ...newProduct, width: parseInt(e.target.value) })}
                 errorMessage={dimensionError}
             />
             <InputField
                 inputId="length"
                 label="Length (CM)"
                 type="number"
-                onChange={e => setNewProduct({ ...newProduct, length: e.target.value })}
+                onChange={e => setNewProduct({ ...newProduct, length: parseInt(e.target.value) })}
                 errorMessage={dimensionError}
             />
             <h5>Please, provide dimension</h5>

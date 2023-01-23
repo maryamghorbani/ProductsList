@@ -10,7 +10,7 @@ export const DvdPanel = () => {
                 inputId="size"
                 label="Size (MB)"
                 type="number"
-                onChange={e => setNewProduct({ ...newProduct, size: e.target.value })}
+                onChange={e => setNewProduct({ ...newProduct, size: parseInt(e.target.value) })}
                 errorMessage={sizeError}
             />
             <h5>Please, provide disc space in MB</h5>
