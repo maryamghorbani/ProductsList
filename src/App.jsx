@@ -65,12 +65,26 @@ function App() {
         } else {
             setSizeError("");
         }
-        console.log(newProduct);
+        console.log("new", newProduct);
+        axios
+            .post("http://localhost/product/saveApi", newProduct, {
+                headers: [
+                    "Access-Control-Allow-Origin: *",
+                    "Access-Control-Allow-Credentials:true",
+                ],
+            })
+            .then(res => {
+                console.log("res", res);
+                console.log("data", res.data);
+            })
+            .catch(err => {
+                console.log("err", err);
+            });
     };
 
     useEffect(() => {
         axios
-            .get("http://localhost/product/get.php")
+            .get("http://localhost/product/get")
             .then(response => setProducts(response.data))
             .catch(err => console.log(err));
     }, []);
