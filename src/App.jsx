@@ -18,6 +18,7 @@ function App() {
         height: null,
         length: null,
         width: null,
+        isChecked: null,
     });
     const [skuError, setSkuError] = useState("");
     const [nameError, setNameError] = useState("");
@@ -82,12 +83,37 @@ function App() {
             });
     };
 
+    const handleMassDelete = () => {
+        let arrayIds = [];
+        products.map(product => {
+            if (product.isChecked) {
+                arrayIds.push(product.id);
+            }
+        });
+        axios
+            .delete("http://localhost/product/saveApi", {
+                data: {
+                    ids: arrayIds,
+                },
+            })
+            .then(res => {
+                console.log("res", res);
+            })
+            .catch(err => {
+                console.log("err", err);
+            });
+        // const filteredProducts = products.filter(product => !product.isChecked);
+        // setProducts(filteredProducts);
+    };
+
     useEffect(() => {
         axios
             .get("http://localhost/product/get")
             .then(response => setProducts(response.data))
             .catch(err => console.log(err));
     }, []);
+
+    console.log(products);
 
     return (
         <div className="App">
@@ -106,6 +132,7 @@ function App() {
                     handleSubmit,
                     type,
                     setType,
+                    handleMassDelete,
                 }}
             >
                 {addNewItem ? <CreateProductPanel /> : <ProductListPage products={products} />}

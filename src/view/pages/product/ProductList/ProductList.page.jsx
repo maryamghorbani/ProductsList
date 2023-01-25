@@ -5,7 +5,7 @@ import { ProductItem } from "@/view/layout/items";
 
 export const ProductListPage = props => {
     const { products } = props;
-    let { setAddNewItem } = useContext(productContext);
+    let { setAddNewItem, handleMassDelete } = useContext(productContext);
 
     return (
         <div className="product-list">
@@ -16,6 +16,7 @@ export const ProductListPage = props => {
                 leftButton="ADD NEW"
                 rightButton="MASS DELETE"
                 onClickLeftButton={() => setAddNewItem(true)}
+                onClickRightButton={handleMassDelete}
             />
             <div className="product-list__content">
                 {products.map(product => (
