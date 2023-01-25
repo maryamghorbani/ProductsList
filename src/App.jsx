@@ -31,52 +31,57 @@ function App() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (newProduct.sku === "") {
-            setSkuError("Please, submit required data");
-        } else {
-            setSkuError("");
-        }
-        if (newProduct.name === "") {
-            setNameError("Please, submit required data");
-        } else {
-            setNameError("");
-        }
-        if (newProduct.price === "") {
-            setPriceError("Please, submit required data");
-        } else {
-            setPriceError("");
-        }
-        if (newProduct.type === "") {
-            setTypeError("Please, submit required data");
-        } else {
-            setTypeError("");
-        }
-        if (newProduct.weight === null) {
-            setWeightError("Please, provide weight");
-        } else {
-            setWeightError("");
-        }
-        if (newProduct.height === null || newProduct.length === null || newProduct.width === null) {
-            setDimensionError("Please, provide dimensions");
-        } else {
-            setDimensionError("");
-        }
-        if (newProduct.size === null) {
-            setSizeError("Please, provide size");
-        } else {
-            setSizeError("");
-        }
 
         axios
-            .post("http://localhost/product/saveApi", newProduct, {
-                headers: [
-                    "Access-Control-Allow-Origin: *",
-                    "Access-Control-Allow-Credentials:true",
-                ],
-            })
+            .post("http://localhost/product/saveApi", newProduct)
             .then(res => {
-                console.log("res", res);
-                console.log("data", res.data);
+                if (!res.data.error) {
+                    setProducts([...products, res.config.data]);
+                    setAddNewItem(false);
+                }
+                if (res.data.message === "Duplicate SKU") {
+                    setSkuError(res.data.message);
+                    console.log(res.data.message);
+                }
+                if (newProduct.sku === "") {
+                    setSkuError(res.data.message);
+                } else {
+                    setSkuError("");
+                }
+                if (newProduct.name === "") {
+                    setNameError(res.data.message);
+                } else {
+                    setNameError("");
+                }
+                if (newProduct.price === "") {
+                    setPriceError(res.data.message);
+                } else {
+                    setPriceError("");
+                }
+                if (newProduct.type === "") {
+                    setTypeError(res.data.message);
+                } else {
+                    setTypeError("");
+                }
+                if (newProduct.weight === null) {
+                    setWeightError(res.data.message);
+                } else {
+                    setWeightError("");
+                }
+                if (
+                    newProduct.height === null ||
+                    newProduct.length === null ||
+                    newProduct.width === null
+                ) {
+                    setDimensionError(res.data.message);
+                } else {
+                    setDimensionError("");
+                }
+                if (newProduct.size === null) {
+                    setSizeError(res.data.message);
+                } else {
+                    setSizeError("");
+                }
             })
             .catch(err => {
                 console.log("err", err);
@@ -91,19 +96,14 @@ function App() {
             }
         });
         axios
-            .delete("http://localhost/product/saveApi", {
-                data: {
-                    ids: arrayIds,
-                },
-            })
+            .post("http://localhost/product/saveApi", arrayIds)
             .then(res => {
                 console.log("res", res);
+                // setProducts(products.filter(product => !product.isChecked));
             })
             .catch(err => {
                 console.log("err", err);
             });
-        // const filteredProducts = products.filter(product => !product.isChecked);
-        // setProducts(filteredProducts);
     };
 
     useEffect(() => {
