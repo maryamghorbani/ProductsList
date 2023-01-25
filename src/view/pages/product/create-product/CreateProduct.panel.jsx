@@ -3,7 +3,7 @@ import { CreateProductForm } from "./CreateProductForm.panel";
 import { useContext } from "react";
 import { productContext } from "@/context/context";
 
-export const CreateProductPanel = props => {
+export const CreateProductPanel = () => {
     let { handleSubmit, setAddNewItem } = useContext(productContext);
     return (
         <div className="create-product-panel">
