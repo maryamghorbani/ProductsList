@@ -66,7 +66,7 @@ function App() {
         } else {
             setSizeError("");
         }
-        console.log("new", newProduct);
+
         axios
             .post("http://localhost/product/saveApi", newProduct, {
                 headers: [
@@ -112,8 +112,6 @@ function App() {
             .then(response => setProducts(response.data))
             .catch(err => console.log(err));
     }, []);
-
-    console.log(products);
 
     return (
         <div className="App">
