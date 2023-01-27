@@ -36,7 +36,7 @@ function App() {
             .post("http://localhost/product/saveApi", newProduct)
             .then(res => {
                 if (!res.data.error) {
-                    setProducts([...products, res.config.data]);
+                    getProduct();
                     setAddNewItem(false);
                 }
                 if (res.data.message === "Duplicate SKU") {
@@ -90,27 +90,31 @@ function App() {
 
     const handleMassDelete = () => {
         let arrayIds = [];
-        products.map(product => {
+        products.forEach(product => {
             if (product.isChecked) {
                 arrayIds.push(product.id);
             }
         });
         axios
-            .post("http://localhost/product/saveApi", arrayIds)
-            .then(res => {
-                console.log("res", res);
-                // setProducts(products.filter(product => !product.isChecked));
+            .post("http://localhost/product/delete", { id: arrayIds })
+            .then(data => {
+                console.log(data);
+                getProduct();
             })
             .catch(err => {
                 console.log("err", err);
             });
     };
 
-    useEffect(() => {
+    const getProduct = () => {
         axios
             .get("http://localhost/product/get")
             .then(response => setProducts(response.data))
             .catch(err => console.log(err));
+    };
+
+    useEffect(() => {
+        getProduct();
     }, []);
 
     return (
