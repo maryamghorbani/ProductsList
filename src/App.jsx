@@ -39,14 +39,13 @@ function App() {
                     getProduct();
                     setAddNewItem(false);
                 }
-                if (res.data.message === "Duplicate SKU") {
-                    setSkuError(res.data.message);
-                    console.log(res.data.message);
-                }
                 if (newProduct.sku === "") {
                     setSkuError(res.data.message);
                 } else {
                     setSkuError("");
+                }
+                if (res.data.message === "Duplicate SKU") {
+                    setSkuError(res.data.message);
                 }
                 if (newProduct.name === "") {
                     setNameError(res.data.message);
