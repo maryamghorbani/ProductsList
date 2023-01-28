@@ -1,6 +1,10 @@
 @import "mixins";
 @import "variables";
 
+* {
+    @include font-family($font-family-base);
+}
+
 .main-header {
     @include main-header;
     @include justify-between;
