@@ -19,9 +19,11 @@ export const ProductListPage = props => {
                 onClickRightButton={handleMassDelete}
             />
             <div className="product-list__content">
-                {products.map(product => (
-                    <ProductItem product={product} key={product.id} />
-                ))}
+                {products.length > 0 ? (
+                    products.map(product => <ProductItem key={product.id} product={product} />)
+                ) : (
+                    <p> No product found :(</p>
+                )}
             </div>
         </div>
     );
