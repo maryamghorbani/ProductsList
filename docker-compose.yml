@@ -1,0 +1,76 @@
+version: '3.2'
+services:
+  php:
+    build:
+      context: ./backend/php
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - './backend/api:/var/www/html'
+    depends_on:
+      - mariadb
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - "./backend/nginx/:/etc/nginx/conf.d"
+      - "./backend/api/:/var/www/html"
+    external_links:
+      - mariadb:mariadb
+      - phpmyadmin:phpmyadmin
+    links:
+      - 'php'
+
+  mariadb:
+    # image: mariadb
+    build:
+      context: ./backend/db
+      dockerfile: Dockerfile
+    container_name: mariadb
+    restart: 'on-failure'
+    command: --default-authentication-plugin=mysql_native_password
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      MYSQL_ROOT_PASSWORD: secretFEF2f32fwec23h64
+      MYSQL_DATABASE: local
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./backend/db/products.sql:/docker-entrypoint-initdb.d/products.sql:ro
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpMyAdmin
+    restart: 'on-failure'
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_PORT=3306
+      - PMA_USER=test
+      - PMA_PASSWORD=test
+    external_links:
+      - mariadb:mariadb
+    volumes:
+      - "./backend/phpmyadmin/sessions:/sessions"
+
+  react-ui:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react-ui
+    volumes:
+      - './react-ui:/var/www/html'
+      - /usr/src/app/my-app/node_modules
+    ports:
+      - "5173:5173"
+    stdin_open: true
+
+volumes:
+  mysql:
