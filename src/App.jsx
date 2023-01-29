@@ -38,48 +38,49 @@ function App() {
                 if (!res.data.error) {
                     getProduct();
                     setAddNewItem(false);
-                }
-                if (newProduct.sku === "") {
-                    setSkuError(res.data.message);
                 } else {
-                    setSkuError("");
-                }
-                if (res.data.message === "Duplicate SKU") {
-                    setSkuError(res.data.message);
-                }
-                if (newProduct.name === "") {
-                    setNameError(res.data.message);
-                } else {
-                    setNameError("");
-                }
-                if (newProduct.price === "") {
-                    setPriceError(res.data.message);
-                } else {
-                    setPriceError("");
-                }
-                if (newProduct.type === "") {
-                    setTypeError(res.data.message);
-                } else {
-                    setTypeError("");
-                }
-                if (newProduct.weight === null) {
-                    setWeightError(res.data.message);
-                } else {
-                    setWeightError("");
-                }
-                if (
-                    newProduct.height === null ||
-                    newProduct.length === null ||
-                    newProduct.width === null
-                ) {
-                    setDimensionError(res.data.message);
-                } else {
-                    setDimensionError("");
-                }
-                if (newProduct.size === null) {
-                    setSizeError(res.data.message);
-                } else {
-                    setSizeError("");
+                    if (newProduct.sku === "") {
+                        setSkuError(res.data.message);
+                    } else {
+                        setSkuError("");
+                    }
+                    if (res.data.message === "Duplicate SKU") {
+                        setSkuError(res.data.message);
+                    }
+                    if (newProduct.name === "") {
+                        setNameError(res.data.message);
+                    } else {
+                        setNameError("");
+                    }
+                    if (newProduct.price === "") {
+                        setPriceError(res.data.message);
+                    } else {
+                        setPriceError("");
+                    }
+                    if (newProduct.type === "") {
+                        setTypeError(res.data.message);
+                    } else {
+                        setTypeError("");
+                    }
+                    if (newProduct.weight === null) {
+                        setWeightError(res.data.message);
+                    } else {
+                        setWeightError("");
+                    }
+                    if (
+                        newProduct.height === null ||
+                        newProduct.length === null ||
+                        newProduct.width === null
+                    ) {
+                        setDimensionError(res.data.message);
+                    } else {
+                        setDimensionError("");
+                    }
+                    if (newProduct.size === null) {
+                        setSizeError(res.data.message);
+                    } else {
+                        setSizeError("");
+                    }
                 }
             })
             .catch(err => {
