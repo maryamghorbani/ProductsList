@@ -21,7 +21,7 @@ export const ProductItem = props => {
                 }}
             />
             <div className="product-item__content">
-                <p>{product.sku}</p>
+                <h4>{product.sku.toUpperCase()}</h4>
                 <p>{product.name}</p>
                 <div className="product-item__price">
                     <span>{product.price}$</span>

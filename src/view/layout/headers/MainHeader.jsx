@@ -13,7 +13,7 @@ export const MainHeader = props => {
     } = props;
     return (
         <div className="main-header">
-            <h1>{title}</h1>
+            <p className="title">{title}</p>
             <div className="button-group">
                 <Button style={leftButtonStyle} onClick={onClickLeftButton} text={leftButton} />
                 <Button style={rightButtonStyle} onClick={onClickRightButton} text={rightButton} />

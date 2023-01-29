@@ -39,6 +39,12 @@
         display: flex;
         align-self: flex-start;
     }
+
+    .product-item__content {
+        p {
+            font-size: 0.8rem;
+        }
+    }
 }
 
 .product-list__content {

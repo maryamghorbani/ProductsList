@@ -16,7 +16,6 @@ export const CreateProductPanel = () => {
                     rightButton="CANCEL"
                     onClickLeftButton={handleSubmit}
                     onClickRightButton={() => {
-                        window.location.reload();
                         setAddNewItem(false);
                     }}
                 />

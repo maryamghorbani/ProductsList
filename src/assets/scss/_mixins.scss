@@ -16,6 +16,10 @@
     color: $dark;
     padding: 0.5rem 1rem;
     @include border-bottom-style($border-color, 2px, solid);
+    .title {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
 }
 
 @mixin horizontal-center {
@@ -53,7 +57,7 @@
 }
 
 @mixin button-style($color, $background-color) {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 0.5rem 1.5rem;
     color: $color;
     background-color: $background-color;
@@ -63,7 +67,7 @@
 }
 
 @mixin error-message {
-    font-size: small;
+    font-size: 0.7rem;
     color: $error-color;
 }
 
@@ -72,7 +76,7 @@
     width: $width;
     margin: 0 auto;
     padding: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: $dark;
 }
 
@@ -85,7 +89,7 @@
 
 @mixin label-style {
     width: 8rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 0.5rem;
     text-align: left;
 }
