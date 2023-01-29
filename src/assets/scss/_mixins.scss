@@ -8,6 +8,10 @@
     border-bottom: $width $style $color;
 }
 
+@mixin border-top-style($color, $width, $style) {
+    border-top: $width $style $color;
+}
+
 @mixin border-style($color, $width, $style) {
     border: $width $style $color;
 }
@@ -20,6 +24,17 @@
         font-size: 1.8rem;
         font-weight: 600;
     }
+}
+
+@mixin main-footer {
+    color: $dark;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    @include border-top-style($border-color, 2px, solid);
+    @include horizontal-center;
 }
 
 @mixin horizontal-center {

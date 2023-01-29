@@ -4,6 +4,7 @@ import { productContext } from "@/context/context";
 import axios from "axios";
 import { ProductListPage } from "@/view/pages/product/ProductList";
 import { CreateProductPanel } from "@/view/pages/product/create-product/CreateProduct.panel";
+import { MainFooter } from "@/view/layout/footers";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -138,6 +139,7 @@ function App() {
                 }}
             >
                 {addNewItem ? <CreateProductPanel /> : <ProductListPage products={products} />}
+                <MainFooter footerContent="This is footer" />
             </productContext.Provider>
         </div>
     );

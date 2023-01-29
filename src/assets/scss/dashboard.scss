@@ -34,6 +34,10 @@
     }
 }
 
+.main-footer {
+    @include main-footer;
+}
+
 .product-item {
     .product-item__delete-checkbox {
         display: flex;
