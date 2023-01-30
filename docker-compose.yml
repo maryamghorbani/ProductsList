@@ -65,9 +65,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: react-ui
-    volumes:
-      - './react-ui:/var/www/html'
-      - /usr/src/app/my-app/node_modules
+    env_file:
+      - ./frontend/.env.production
     ports:
       - "5173:5173"
     stdin_open: true
