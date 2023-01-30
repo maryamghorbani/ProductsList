@@ -53,6 +53,7 @@
 
 .product-list__content {
     margin-top: 3rem;
+    margin-bottom: 10rem;
     @include grid-template;
 
     .card {

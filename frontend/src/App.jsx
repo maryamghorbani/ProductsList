@@ -1,4 +1,3 @@
-import "./App.scss";
 import { useEffect, useState } from "react";
 import { productContext } from "@/context/context";
 import axios from "axios";
