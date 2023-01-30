@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { productContext } from "@/context/context";
-import axios from "axios";
 import { ProductListPage } from "@/view/pages/product/ProductList";
 import { CreateProductPanel } from "@/view/pages/product/create-product/CreateProduct.panel";
 import { MainFooter } from "@/view/layout/footers";
+import { productService } from "../api-assets/employee.service";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -31,9 +31,8 @@ function App() {
 
     const handleSubmit = e => {
         e.preventDefault();
-
-        axios
-            .post("http://localhost/product/saveApi", newProduct)
+        productService
+            .saveProduct(newProduct)
             .then(res => {
                 if (!res.data.error) {
                     getProduct();
@@ -83,6 +82,7 @@ function App() {
                     }
                 }
             })
+
             .catch(err => {
                 console.log("err", err);
             });
@@ -95,22 +95,15 @@ function App() {
                 arrayIds.push(product.id);
             }
         });
-        axios
-            .post("http://localhost/product/delete", { id: arrayIds })
-            .then(data => {
-                console.log(data);
-                getProduct();
-            })
-            .catch(err => {
-                console.log("err", err);
-            });
+        productService.massDelete(arrayIds).then(res => {
+            getProduct();
+        });
     };
 
     const getProduct = () => {
-        axios
-            .get("http://localhost/product/get")
-            .then(response => setProducts(response.data))
-            .catch(err => console.log(err));
+        productService.getAllProducts().then(res => {
+            setProducts(res.data);
+        });
     };
 
     useEffect(() => {
