@@ -40,14 +40,14 @@ CREATE TABLE `products`  (
 -- ----------------------------
 -- Records of products
 -- ----------------------------
-INSERT INTO `products` VALUES (1, 'testSku', 'testName', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-22 19:15:07');
-INSERT INTO `products` VALUES (4, 'test', 'ZjO', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-23 02:37:20');
-INSERT INTO `products` VALUES (8, 'vvtester', 'vfdvr', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-23 02:52:51');
-INSERT INTO `products` VALUES (9, 'WbuYl', 'DVD', 100.00, 'dvd', 10, NULL, NULL, NULL, NULL, '2023-01-23 13:00:41');
-INSERT INTO `products` VALUES (10, '31YAC8', 'FURNITURE', 100.00, 'furniture', NULL, NULL, 20, 30, 40, '2023-01-23 13:00:46');
-INSERT INTO `products` VALUES (11, 'NvgI0', 'BOOK', 100.00, 'book', NULL, 45, NULL, NULL, NULL, '2023-01-23 13:00:47');
-INSERT INTO `products` VALUES (16, 'h0JDi', 'DVD', 100.00, 'dvd', 10, NULL, NULL, NULL, NULL, '2023-01-23 13:17:14');
-INSERT INTO `products` VALUES (17, 'NKaAZ0', 'FURNITURE', 100.00, 'furniture', NULL, NULL, 20, 30, 40, '2023-01-23 13:17:19');
-INSERT INTO `products` VALUES (18, 'NccP1', 'BOOK', 100.00, 'book', NULL, 45, NULL, NULL, NULL, '2023-01-23 13:17:19');
+INSERT INTO `products` VALUES (1, 'test1', 'DVD', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-22 19:15:07');
+INSERT INTO `products` VALUES (4, 'test2', 'DVD1', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-23 02:37:20');
+INSERT INTO `products` VALUES (8, 'test3', 'DVD2', 100.00, 'dvd', 123, NULL, NULL, NULL, NULL, '2023-01-23 02:52:51');
+INSERT INTO `products` VALUES (9, 'test4', 'DVD3', 100.00, 'dvd', 10, NULL, NULL, NULL, NULL, '2023-01-23 13:00:41');
+INSERT INTO `products` VALUES (10, 'test5', 'FURNITURE', 100.00, 'furniture', NULL, NULL, 20, 30, 40, '2023-01-23 13:00:46');
+INSERT INTO `products` VALUES (11, 'test6', 'BOOK', 100.00, 'book', NULL, 45, NULL, NULL, NULL, '2023-01-23 13:00:47');
+INSERT INTO `products` VALUES (16, 'test7', 'DVD4', 100.00, 'dvd', 10, NULL, NULL, NULL, NULL, '2023-01-23 13:17:14');
+INSERT INTO `products` VALUES (17, 'test8', 'FURNITURE1', 100.00, 'furniture', NULL, NULL, 20, 30, 40, '2023-01-23 13:17:19');
+INSERT INTO `products` VALUES (18, 'test9', 'BOOK1', 100.00, 'book', NULL, 45, NULL, NULL, NULL, '2023-01-23 13:17:19');
 
 SET FOREIGN_KEY_CHECKS = 1;
