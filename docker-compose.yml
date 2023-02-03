@@ -4,6 +4,7 @@ services:
     build:
       context: ./backend/php
       dockerfile: Dockerfile
+    image: products_php:latest
     container_name: php
     volumes:
       - './backend/api:/var/www/html'
@@ -30,6 +31,7 @@ services:
     build:
       context: ./backend/db
       dockerfile: Dockerfile
+    image: products_db:latest
     container_name: mariadb
     restart: 'on-failure'
     command: --default-authentication-plugin=mysql_native_password
@@ -64,6 +66,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: products_frontend:latest
     container_name: react-ui
     env_file:
       - ./frontend/.env.production
