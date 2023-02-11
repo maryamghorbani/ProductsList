@@ -39,7 +39,7 @@
 }
 
 .product-item {
-    .product-item__delete-checkbox {
+    .delete-checkbox {
         display: flex;
         align-self: flex-start;
     }
@@ -60,7 +60,7 @@
         @include grid-item;
         text-align: center;
 
-        .product-item__delete-checkbox {
+        .delete-checkbox {
             float: left;
         }
     }

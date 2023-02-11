@@ -12,7 +12,7 @@ export const ProductItem = props => {
     return (
         <Card className="product-item">
             <input
-                className="product-item__delete-checkbox"
+                className="delete-checkbox"
                 type="checkbox"
                 value={product.id}
                 name={product.id}
